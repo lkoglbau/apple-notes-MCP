@@ -1,0 +1,26 @@
+[project]
+name = "notes-mcp"
+version = "0.1.0"
+description = "MCP-Server für Apple Notizen (Notes.app) auf macOS"
+requires-python = ">=3.12"
+dependencies = [
+    "anyio>=4.15.1",
+    "markdown>=3.11",
+    "markdownify>=1.2.3",
+    "mcp[cli]>=1.2,<2",
+]
+
+[project.scripts]
+notes-mcp = "notes_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
